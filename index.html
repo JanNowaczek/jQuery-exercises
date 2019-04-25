@@ -5,34 +5,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ex4</title>
-    <style>
-        td img:hover {
-            cursor: pointer
-        }
-    </style>
+    <title>Ex5</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-        $(function() {
-            $('td img').click(function() {
-                const source = $(this).attr('src').replace('100x75', '400x300')
-                const altText = $(this).attr('alt')
-                $('div img').attr({ 'src': source, 'alt': altText })
-            })
-        })
+        $(function () {
+            $('li > ul').hide('fast');
+            $('li:has("ul")').click(
+                function () {
+                    $(this).children().toggle('fast');
+                }
+            );
+
+            /*$('li > ul').slideUp('medium');
+            $('li:has("ul")').click(
+                function () {
+                    $(this).children().slideToggle('medium');
+                }
+            );*/
+
+            /*$('li > ul').fadeOut('slow');
+            $('li:has("ul")').click(
+                function () {
+                    $(this).children().fadeToggle('slow');
+                }
+            );*/
+
+            /*$('li > ul').hide();
+            $('li:has("ul")').click(
+                function () {
+                    $(this).children().toggle();
+                }
+            );*/
+        });
     </script>
 </head>
 
 <body>
-    <table>
-        <tbody>
-            <tr>
-                <td><img src="100x75/desert.jpg" alt="desert" /></td>
-                <td><img src="100x75/koala.jpg" alt="koala" /></td>
-            </tr>
-        </tbody>
-    </table>
-    <div><img src="#" alt="" /></div>
+    <ul>
+        <li>Pozycja 1</li>
+        <li>Pozycja 2
+            <ul>
+                <li>Podpozycja 2a</li>
+                <li>Podpozycja 2b</li>
+                <li>Podpozycja 2c</li>
+            </ul>
+        </li>
+        <li>Pozycja 3</li>
+        <li>Pozycja 4</li>
+    </ul>
 </body>
 
 </html>
