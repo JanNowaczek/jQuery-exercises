@@ -5,51 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ex3</title>
+    <title>Ex4</title>
     <style>
-        div {
-            width: 100px;
-            height: 100px;
-            border: 3px solid black;
-            border-radius: 20px;
-            margin-bottom: 10px;
-        }
-
-        #red {
-            background-color: red;
-        }
-
-        #green {
-            background-color: green;
-        }
-
-        #pink {
-            background-color: pink;
-        }
-
-        #blue {
-            background-color: blue;
+        td img:hover {
+            cursor: pointer
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-        $(function () {
-            $('div').mouseover(function () {
-                var bgColor = $(this).css('backgroundColor')
-                $('body').css('backgroundColor', bgColor)
-            })
-            $('div').mouseout(function () {
-                $('body').css('backgroundColor', 'white')
+        $(function() {
+            $('td img').click(function() {
+                const source = $(this).attr('src').replace('100x75', '400x300')
+                const altText = $(this).attr('alt')
+                $('div img').attr({ 'src': source, 'alt': altText })
             })
         })
     </script>
 </head>
 
 <body>
-    <div id="red"></div>
-    <div id="green"></div>
-    <div id="pink"></div>
-    <div id="blue"></div>
+    <table>
+        <tbody>
+            <tr>
+                <td><img src="100x75/desert.jpg" alt="desert" /></td>
+                <td><img src="100x75/koala.jpg" alt="koala" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <div><img src="#" alt="" /></div>
 </body>
 
 </html>
