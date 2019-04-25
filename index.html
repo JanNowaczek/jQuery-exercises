@@ -5,55 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ex5</title>
+    <title>Ex6</title>
+    <style>
+        input[type="button"] {
+            font-size: large;
+        }
 
+        div {
+            width: 300px;
+            height: 175px;
+            border: 1px solid black;
+            margin-top: 20px;
+            position: absolute;
+            background-color: blue;
+        }
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-        $(function () {
-            $('li > ul').hide('fast');
-            $('li:has("ul")').click(
-                function () {
-                    $(this).children().toggle('fast');
+        $(function() {
+            $('[type="button"]').click(function() {
+                const direction = $(this).val();
+                if (direction == 'W prawo') {
+                    $('div').animate({ left: '+=400' }, 3000);
+                } else if (direction == 'W lewo') {
+                    $('div').animate({ left: '-=400' }, 3000);
                 }
-            );
-
-            /*$('li > ul').slideUp('medium');
-            $('li:has("ul")').click(
-                function () {
-                    $(this).children().slideToggle('medium');
-                }
-            );*/
-
-            /*$('li > ul').fadeOut('slow');
-            $('li:has("ul")').click(
-                function () {
-                    $(this).children().fadeToggle('slow');
-                }
-            );*/
-
-            /*$('li > ul').hide();
-            $('li:has("ul")').click(
-                function () {
-                    $(this).children().toggle();
-                }
-            );*/
+            });
         });
     </script>
 </head>
 
 <body>
-    <ul>
-        <li>Pozycja 1</li>
-        <li>Pozycja 2
-            <ul>
-                <li>Podpozycja 2a</li>
-                <li>Podpozycja 2b</li>
-                <li>Podpozycja 2c</li>
-            </ul>
-        </li>
-        <li>Pozycja 3</li>
-        <li>Pozycja 4</li>
-    </ul>
+    <input type="button" value="W lewo" />
+    <input type="button" value="W prawo" />
+    <div></div>
 </body>
 
 </html>
