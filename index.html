@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ex1</title>
+    <title>Ex2</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-		$(() => alert('Dzień dobry! Miłego dnia!'))
-	</script>
+        $(function() {
+            $('p').click(function() {
+                $('p').hide()
+            })
+            $('h1').click(function() {
+                $('p').show()
+            })
+        })
+    </script>
 </head>
+
 <body>
-    
+    <h1>Nagłówek</h1>
+    <p>Akapit pierwszy</p>
+    <p>Akapit drugi</p>
+    <p>Akapit trzeci</p>
 </body>
+
 </html>
