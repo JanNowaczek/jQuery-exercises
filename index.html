@@ -5,25 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ex2</title>
+    <title>Ex3</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 3px solid black;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        #red {
+            background-color: red;
+        }
+
+        #green {
+            background-color: green;
+        }
+
+        #pink {
+            background-color: pink;
+        }
+
+        #blue {
+            background-color: blue;
+        }
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-        $(function() {
-            $('p').click(function() {
-                $('p').hide()
+        $(function () {
+            $('div').mouseover(function () {
+                var bgColor = $(this).css('backgroundColor')
+                $('body').css('backgroundColor', bgColor)
             })
-            $('h1').click(function() {
-                $('p').show()
+            $('div').mouseout(function () {
+                $('body').css('backgroundColor', 'white')
             })
         })
     </script>
 </head>
 
 <body>
-    <h1>Nagłówek</h1>
-    <p>Akapit pierwszy</p>
-    <p>Akapit drugi</p>
-    <p>Akapit trzeci</p>
+    <div id="red"></div>
+    <div id="green"></div>
+    <div id="pink"></div>
+    <div id="blue"></div>
 </body>
 
 </html>
