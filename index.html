@@ -7,21 +7,42 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ex7</title>
     <style>
-        .hello {
-            font-size: 40px;
-            color: blue;
-            font-weight: bold;
+        #marquee {
+            margin: 0 auto;
+            overflow: hidden;
+            width: 980px;
+            height: 65px;
+            background: url('logotypes.jpg') repeat-x 0 center;
+            border: 1px solid gray;
+            box-shadow: 2px 2px 8px #aaa;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-        $(function () {
-            $('body').append($('<div></div>').text('Hello, world!').addClass('hello').hide().fadeIn(2000));
-        });
+        let currentPosition;
+
+        const logotypes = () => {
+            $('#marquee')
+                .animate({ backgroundPosition: '-1744px' }, 20000, 'linear', function () {
+                    $(this).css('backgroundPosition', '0');
+                    logotypes();
+                })
+                .mouseover(function () {
+                    $(this).stop();
+                    currentPosition = $(this).css('backgroundPosition');
+                })
+                .mouseout(function () {
+                    $(this).css('backgroundPosition', currentPosition);
+                    logotypes();
+                });
+        };
+
+        $(() => logotypes());
     </script>
 </head>
 
 <body>
+    <div id="marquee"></div>
 </body>
 
 </html>
